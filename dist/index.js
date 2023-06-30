@@ -2437,7 +2437,8 @@ exports.getInput = getInput;
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function setOutput(name, value) {
-    command_1.issueCommand('set-output', { name }, value);
+    process.stdout.write(`echo "${name}=${value}" >> $GITHUB_STATE` + os.EOL);
+    // command_1.issueCommand('set-output', { name }, value);
 }
 exports.setOutput = setOutput;
 /**
